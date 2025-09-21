@@ -31,10 +31,10 @@ class GestorAlumnos {
         val alumnoBorrado = listaAlumnos.removeIf { it.dni == dni }
         if (alumnoBorrado) {
 
-            println("El alumno con dni ${dni} se dio de bja con éxito")
+            println("El alumno con dni $dni se dio de bja con éxito")
 
         } else {
-            println("No se encontró el alumno con dni: ${dni}")
+            println("No se encontró el alumno con dni: $dni")
         }
     }
 
