@@ -6,7 +6,7 @@ class GestorAlumnos {
         if(existeAlumnoPorDni(alumno.dni)){
             println("Ese dni ya existe y debe ser único.")
         }
-        if(alumno.nombre.isEmpty() || alumno.apellido.isEmpty() || alumno.dni.isEmpty()){
+        else if(alumno.nombre.isEmpty() || alumno.apellido.isEmpty() || alumno.dni.isEmpty()){
             println("No se permite introducir datos vacíos. Vuelva a intentarlo.")
         }
         else if(existeAlumno(alumno)){
