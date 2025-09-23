@@ -1,6 +1,15 @@
 class GestorAlumnos {
 
     private val listaAlumnos = mutableListOf<Alumno>()
+    var alumnoId: Int = 0
+        private set
+
+    private fun setAlumnoId(alumno: Alumno): Int{
+        if (existeAlumno(alumno)){
+            return alumno.alumnoId
+        }
+        return ++alumnoId
+    }
 
     fun altaAlumno(alumno: Alumno) {
         if(existeAlumnoPorDni(alumno.dni)){
@@ -13,6 +22,7 @@ class GestorAlumnos {
             println("El alumno ${alumno.nombre} ${alumno.apellido} ya existe.")
 
         } else {
+            alumno.alumnoId = setAlumnoId(alumno);
             listaAlumnos.add(alumno)
             println("Alumno ${alumno.nombre} ${alumno.apellido} dado de alta con éxito.")
         }
@@ -46,12 +56,19 @@ class GestorAlumnos {
         return listaAlumnos.any { it.dni == dni }
     }
 
+    fun findAlumnoByDni(dni: String): Alumno? {
+        return listaAlumnos.find { it.dni == dni }
+
+    }
+
     fun listarAlumnos() {
         if (listaAlumnos.isEmpty()) {
             println("La lista de Alumnos está vacía.")
 
         } else {
-            listaAlumnos.forEach { println("Nombre: ${it.nombre}, apellido: ${it.apellido}, dni: ${it.dni}") }
+            listaAlumnos.forEach {
+                println("alumnoId: ${it.alumnoId} Nombre: ${it.nombre}, apellido: ${it.apellido}, dni: ${it.dni}")
+            }
         }
     }
 }

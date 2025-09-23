@@ -1,9 +1,9 @@
 // Crear clase Alumno con métodos existe, alta y baja sobre una lista.
 
 fun main() {
-    val juanPerez = Alumno("Juan", "Pérez", "12345678C")
-    val martaSanchez = Alumno("Marta", "Sanchez", "98765432T")
-    val franRodriguez = Alumno("Fran", "Rodríguez", "25364896G")
+    val juanPerez = Alumno(nombre = "Juan", apellido =  "Pérez", dni =  "12345678C")
+    val martaSanchez = Alumno(nombre = "Marta", apellido = "Sanchez", dni =  "98765432T")
+    val franRodriguez = Alumno(nombre = "Fran", apellido =  "Rodríguez", dni =  "25364896G")
 
     val gestorAlumnos = GestorAlumnos()
 
@@ -32,4 +32,11 @@ fun main() {
     println("--------------------------------------------------------------------------------------")
 
     println("Existe el Alumno Fran Rodriguez: ${gestorAlumnos.existeAlumno(franRodriguez)}")
+
+    println("--------------------------------------------------------------------------------------")
+    val pedroPicapiedra = Alumno(nombre = "Pedro", apellido = "Picapiedra", dni="77777777G")
+    gestorAlumnos.altaAlumno(pedroPicapiedra)
+
+    println("listado de alumnos: ")
+    gestorAlumnos.listarAlumnos()
 }

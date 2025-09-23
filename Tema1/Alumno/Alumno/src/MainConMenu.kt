@@ -40,7 +40,8 @@ fun operacionesMenu(gestorAlumnos: GestorAlumnos): String {
 
             print("DNI: ")
             val dni = readln()
-            val alumno = Alumno(nombre, apellido, dni)
+
+            val alumno = Alumno(nombre = nombre, apellido =  apellido, dni =  dni)
             gestorAlumnos.altaAlumno(alumno)
         }
 
@@ -59,7 +60,13 @@ fun operacionesMenu(gestorAlumnos: GestorAlumnos): String {
             print("Introduce el dni del alumno para comprobar si existe: ")
             val dniAlumno = readln()
             val existeAlumno = gestorAlumnos.existeAlumnoPorDni(dniAlumno)
-            println(if (existeAlumno) "Existe el usuario." else "No existe el usuario.")
+            val alumno = gestorAlumnos.findAlumnoByDni(dniAlumno)
+            println(
+                if (existeAlumno)
+                    "Existe el usuario ${alumno?.nombre} ${alumno?.apellido}."
+
+                else "No existe el usuario con dni: ${dniAlumno}."
+            )
         }
 
         "5" -> {
