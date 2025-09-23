@@ -22,7 +22,7 @@ class GestorAlumnos {
             println("El alumno ${alumno.nombre} ${alumno.apellido} ya existe.")
 
         } else {
-            alumno.alumnoId = setAlumnoId(alumno);
+            alumno.alumnoId = setAlumnoId(alumno)
             listaAlumnos.add(alumno)
             println("Alumno ${alumno.nombre} ${alumno.apellido} dado de alta con éxito.")
         }
